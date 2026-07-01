@@ -1,26 +1,33 @@
 # homebrew-tap
 
-Homebrew tap for [`macmail`](https://github.com/ikhoon/macmail) — a fast,
-scriptable CLI for macOS Mail.app.
+Homebrew tap for [`ikhoon`](https://github.com/ikhoon)'s macOS CLIs:
+
+- [`maccal`](https://github.com/ikhoon/maccal) — scriptable macOS **Calendar** CLI (EventKit).
+- [`macmail`](https://github.com/ikhoon/macmail) — scriptable macOS **Mail.app** CLI.
 
 ## Install
 
 ```bash
+brew install ikhoon/tap/maccal
 brew install ikhoon/tap/macmail
 ```
 
-Then run a read command (e.g. `macmail triage`) and grant **Full Disk Access**
-to "macmail" when prompted.
+- **maccal** — after install, authorize Calendar access once: `maccal auth`.
+- **macmail** — run a read command (e.g. `macmail triage`) and grant **Full Disk Access**
+  to "macmail" when prompted.
 
 ## Notes
 
-- **Apple Silicon (arm64) only.** Installs a prebuilt, codesigned `macmail.app`
-  from the macmail GitHub release.
-- Not a source build — Homebrew's build sandbox blocks network during `install`,
-  so `bun install` can't run; the prebuilt download also avoids Gatekeeper
-  (Homebrew's curl doesn't quarantine the file).
+- **maccal**: universal (arm64 + x86_64), prebuilt and codesigned `maccal.app` from the
+  maccal GitHub release. It holds its own Calendar (TCC) grant via `maccal.app` — it does
+  not grant your terminal calendar access.
+- **macmail**: **Apple Silicon (arm64) only**, prebuilt and codesigned `macmail.app` from
+  the macmail release.
+- Both are prebuilt downloads, not source builds — Homebrew's build sandbox blocks the
+  network during `install`, and the prebuilt download also avoids Gatekeeper (Homebrew's
+  curl doesn't quarantine the file).
 
-## Updating the formula on a new macmail release
+## Updating a formula on a new release
 
-1. `shasum -a 256 macmail-<version>-macos-arm64.zip`
-2. Bump `version`, `url`, and `sha256` in `Formula/macmail.rb`; commit and push.
+1. `shasum -a 256 <name>-<version>-macos-*.zip`
+2. Bump `url` and `sha256` in `Formula/<name>.rb`; commit and push.
