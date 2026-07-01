@@ -17,7 +17,16 @@ class Maccal < Formula
   depends_on :macos
 
   def install
-    prefix.install "maccal.app"
+    # Homebrew unpacks archives "nestedly": it strips leading single directories.
+    # The zip is a single maccal.app whose only child is Contents/, so the strip
+    # can leave the bundle at one of three depths — handle all of them.
+    if File.directory?("maccal.app")
+      prefix.install "maccal.app"
+    elsif File.directory?("Contents")
+      (prefix/"maccal.app").install "Contents"
+    else
+      (prefix/"maccal.app/Contents").install buildpath.children
+    end
     bin.install_symlink prefix/"maccal.app/Contents/MacOS/maccal"
     generate_completions_from_executable(bin/"maccal", "completions",
                                          shells:                 [:zsh, :bash],
