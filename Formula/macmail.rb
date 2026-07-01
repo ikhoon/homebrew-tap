@@ -7,9 +7,9 @@
 class Macmail < Formula
   desc "Fast, scriptable CLI for macOS Mail.app — triage, search, read, reply"
   homepage "https://github.com/ikhoon/macmail"
-  version "0.2.0"
-  url "https://github.com/ikhoon/macmail/releases/download/v0.2.0/macmail-0.2.0-macos-arm64.zip"
-  sha256 "9b10b9407a056be85359e5b3742831818eb6bc9887bb07a31a10c074c4f7ed57"
+  version "0.3.0"
+  url "https://github.com/ikhoon/macmail/releases/download/v0.3.0/macmail-0.3.0-macos-arm64.zip"
+  sha256 "2890ae7d0ed77a02cefaa150be9fa7abad742a42fcda4273dc41bc84ef1ac6a8"
 
   depends_on :macos
   depends_on arch: :arm64
@@ -33,6 +33,6 @@ class Macmail < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/macmail --version")
+    assert_match "0.3.0", shell_output("#{bin}/macmail --version")
   end
 end
