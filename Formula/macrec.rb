@@ -19,7 +19,15 @@ class Macrec < Formula
   depends_on :macos
 
   def install
-    prefix.install "macrec.app"
+    # Homebrew strips leading single directories when unpacking; the zip is a single macrec.app
+    # whose only child is Contents/, so the bundle can land at one of three depths — handle all.
+    if File.directory?("macrec.app")
+      prefix.install "macrec.app"
+    elsif File.directory?("Contents")
+      (prefix/"macrec.app").install "Contents"
+    else
+      (prefix/"macrec.app/Contents").install buildpath.children
+    end
     # `macrec` CLI (config / engine / perm-status …); the same binary launches the menu-bar app.
     bin.install_symlink prefix/"macrec.app/Contents/MacOS/meeting-capture" => "macrec"
   end
