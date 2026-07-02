@@ -14,7 +14,7 @@ class Macrec < Formula
   homepage "https://github.com/ikhoon/macrec"
   url "https://github.com/ikhoon/macrec/releases/download/v0.2.0/macrec-0.2.0-macos-arm64.zip"
   version "0.2.0"   # explicit — else Homebrew mis-parses "64" from "arm64" in the filename
-  sha256 "33970c95069e06c77162b9383ed908bade3d40a48677da7d05ef0ea9c2c1b7b0"
+  sha256 "fcc49625ae53d9d6a9eecc356242d4145de09177176c87488c1b256d80a1c0a4"
 
   depends_on arch: :arm64
   depends_on :macos
