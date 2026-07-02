@@ -12,9 +12,9 @@
 class Macrec < Formula
   desc "Always-on macOS meeting recorder with local whisper.cpp transcription"
   homepage "https://github.com/ikhoon/macrec"
-  url "https://github.com/ikhoon/macrec/releases/download/v0.2.1/macrec-0.2.1-macos-arm64.zip"
-  version "0.2.1"   # explicit — else Homebrew mis-parses "64" from "arm64" in the filename
-  sha256 "39a698fcda3cee1f3821786816fe5f345a55ebce10eed64f14237325194c0d35"
+  url "https://github.com/ikhoon/macrec/releases/download/v0.2.2/macrec-0.2.2-macos-arm64.zip"
+  version "0.2.2"   # explicit — else Homebrew mis-parses "64" from "arm64" in the filename
+  sha256 "5366b0b4375e2b0cfbbb76868688f982f40dd1aebd08a98ea0c967012d6734e5"
 
   depends_on arch: :arm64
   depends_on :macos
