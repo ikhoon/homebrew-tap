@@ -16,7 +16,9 @@ class Macmail < Formula
 
   def install
     prefix.install "macmail.app"
-    (bin/"macmail").make_symlink prefix/"macmail.app/Contents/MacOS/macmail"
+    # install_symlink creates bin/ and the symlink; a bare make_symlink would
+    # fail because bin/ doesn't exist yet.
+    bin.install_symlink prefix/"macmail.app/Contents/MacOS/macmail"
 
     # The binary emits its own completion scripts (no Full Disk Access needed).
     (zsh_completion/"_macmail").write Utils.safe_popen_read(bin/"macmail", "completions", "--shell", "zsh")
