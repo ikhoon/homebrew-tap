@@ -11,8 +11,8 @@
 class Maccal < Formula
   desc "Scriptable macOS Calendar CLI (EventKit) — agenda, search, add/edit/rm"
   homepage "https://github.com/ikhoon/maccal"
-  url "https://github.com/ikhoon/maccal/releases/download/v0.3.0/maccal-v0.3.0-macos-universal.zip"
-  sha256 "919eea8a0905a77705dca7fb50827b4eae4ce57c1edf6b5bfc8c7cfe6d91b941"
+  url "https://github.com/ikhoon/maccal/releases/download/v0.4.0/maccal-v0.4.0-macos-universal.zip"
+  sha256 "cbfa6a62a6de0612dffe424888b2b71c2918efb9a9520a86c402ab55d2db50d4"
 
   depends_on :macos
 
