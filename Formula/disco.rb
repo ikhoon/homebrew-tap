@@ -12,7 +12,7 @@ class Disco < Formula
   # sha256 with sed.
   version "0.1.0"
   url "https://github.com/ikhoon/disco/releases/download/v0.1.0/disco-0.1.0-macos-arm64.zip"
-  sha256 "REPLACE_WITH_RELEASE_SHA256"
+  sha256 "ffc410fdf6cc55053c728ffa23fe6b33a2b24b0cec891f4a1d7dc6bc43e46fcd"
 
   depends_on :macos
   depends_on arch: :arm64
