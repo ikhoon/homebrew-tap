@@ -14,7 +14,7 @@ cask "maccal-menubar" do
   desc "Menu-bar companion for maccal — scheduled background Calendar sync"
   homepage "https://github.com/ikhoon/maccal"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "maccal.app"
 
