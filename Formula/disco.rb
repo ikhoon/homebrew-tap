@@ -10,9 +10,9 @@ class Disco < Formula
   # version is explicit — else Homebrew mis-parses "64" from "arm64" in the
   # filename. Kept on bare lines: the release workflow rewrites version/url/
   # sha256 with sed.
-  version "0.2.0"
-  url "https://github.com/ikhoon/disco/releases/download/v0.2.0/disco-0.2.0-macos-arm64.zip"
-  sha256 "e9d670b3a96ecd69fe61e91cedbf658ca8f0bcaa1258f4f2e78143c7feb3a11f"
+  version "0.1.0"
+  url "https://github.com/ikhoon/disco/releases/download/v0.1.0/disco-0.1.0-macos-arm64.zip"
+  sha256 "20ca17ee94663999e9e3178d6bbf9142dddccfb4be5fcacd680ad303a27fc06f"
 
   depends_on :macos
   depends_on arch: :arm64
@@ -37,6 +37,6 @@ class Disco < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/disco --version")
+    assert_match "0.1.0", shell_output("#{bin}/disco --version")
   end
 end
