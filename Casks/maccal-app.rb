@@ -7,14 +7,17 @@
 #   brew install ikhoon/tap/maccal
 # Both provide `maccal` on PATH, so install one or the other — not both.
 cask "maccal-app" do
-  version "0.10.0"
-  sha256 "debe239fed82bed65e181dc90f9c64cdf752d0c2d876de3d6f2a962ccb45f3c0"
+  version "0.11.0"
+  sha256 "705246c299b890a34ef9a9f0943186d9c21732174dd48724a2ef880e5489dfc6"
 
   url "https://github.com/ikhoon/maccal/releases/download/v#{version}/maccal-menubar-v#{version}-macos-universal.zip"
   name "maccal"
   desc "Menu-bar Calendar sync app for maccal, bundling the maccal CLI"
   homepage "https://github.com/ikhoon/maccal"
 
+  # The app self-updates in place via its "Check for Updates…" menu item, so the
+  # installed version can move ahead of the cask between `brew upgrade`s.
+  auto_updates true
   depends_on macos: :sonoma
 
   app "maccal.app"
@@ -22,19 +25,19 @@ cask "maccal-app" do
   # maccal-app` gives you both the GUI app and the `maccal` terminal command.
   binary "#{appdir}/maccal.app/Contents/MacOS/maccal"
 
-  # Ad-hoc signed (not notarized): strip the quarantine flag so Gatekeeper does
+  # Self-signed (not notarized): strip the quarantine flag so Gatekeeper does
   # not block first launch.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/maccal.app"]
   end
 
-  uninstall quit:      "kr.ikhoon.maccalbar",
-            launchctl: "kr.ikhoon.maccal-sync"
+  uninstall launchctl: "kr.ikhoon.maccal-sync",
+            quit:      "kr.ikhoon.maccalbar"
 
   zap trash: [
     "~/Library/Application Support/maccal",
-    "~/Library/Preferences/kr.ikhoon.maccalbar.plist",
     "~/Library/LaunchAgents/kr.ikhoon.maccal-sync.plist",
+    "~/Library/Preferences/kr.ikhoon.maccalbar.plist",
   ]
 end
