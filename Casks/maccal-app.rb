@@ -7,8 +7,8 @@
 #   brew install ikhoon/tap/maccal
 # Both provide `maccal` on PATH, so install one or the other — not both.
 cask "maccal-app" do
-  version "0.11.0"
-  sha256 "705246c299b890a34ef9a9f0943186d9c21732174dd48724a2ef880e5489dfc6"
+  version "0.11.1"
+  sha256 "1c28d8a5792e505317df2d9752c1e4b77bd8037b767a649a9d0584103bc3a502"
 
   url "https://github.com/ikhoon/maccal/releases/download/v#{version}/maccal-menubar-v#{version}-macos-universal.zip"
   name "maccal"
